@@ -1,0 +1,8 @@
+{
+    "sharded": false,
+    "tables": {
+        "bmsql_history_seq": {
+            "type": "sequence"
+        }
+    }
+}

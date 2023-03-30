@@ -60,7 +60,7 @@ create table bmsql_customer (
 -- create sequence bmsql_hist_id_seq;
 
 create table bmsql_history (
-  hist_id  integer not null auto_increment  primary key,
+  hist_id  integer not null primary key,
   h_c_id   integer,
   h_c_d_id integer,
   h_c_w_id integer,
@@ -135,3 +135,5 @@ create table bmsql_stock (
   constraint pk_stock primary key (s_w_id, s_i_id)
 );
 
+create table commerce.bmsql_history_seq(id bigint, next_id bigint, cache bigint, primary key(id)) comment 'vitess_sequence';
+insert into  commerce.bmsql_history_seq(id, next_id, cache) values(0, 100000000,1000000000);;

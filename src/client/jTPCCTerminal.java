@@ -173,6 +173,7 @@ public class jTPCCTerminal implements jTPCCConfig, Runnable
 		}
 		transactionTypeName = "Payment";
 	    }
+		/*
 	    else if(transactionType <= paymentWeight + stockLevelWeight)
 	    {
 		jTPCCTData      term = new jTPCCTData();
@@ -199,7 +200,8 @@ public class jTPCCTerminal implements jTPCCConfig, Runnable
 		}
 		transactionTypeName = "Stock-Level";
 	    }
-	    else if(transactionType <= paymentWeight + stockLevelWeight + orderStatusWeight)
+		*/
+	    else if(transactionType <= paymentWeight + stockLevelWeight || transactionType <= paymentWeight + stockLevelWeight + orderStatusWeight)
 	    {
 		jTPCCTData      term = new jTPCCTData();
 		term.setNumWarehouses(numWarehouses);

@@ -1,0 +1,97 @@
+{
+  "sharded": true,
+  "vindexes": {
+    "hash": {
+      "type": "hash"
+    },
+    "unicode_loose_md5": {
+      "type": "unicode_loose_md5"
+    }
+  },
+  "tables": {
+    "bmsql_config": {
+        "column_vindexes": [
+            {
+                "column": "cfg_name",
+                "name": "unicode_loose_md5"
+            }
+        ]
+    },
+    "bmsql_customer": {
+      "column_vindexes": [
+        {
+          "column": "c_w_id",
+          "name": "hash"
+        }
+      ]
+    },
+    "bmsql_district": {
+      "column_vindexes": [
+        {
+          "column": "d_w_id",
+          "name": "hash"
+        }
+      ]
+    },
+    "bmsql_history": {
+      "column_vindexes": [
+        {
+          "column": "hist_id",
+          "name": "hash"
+        }
+      ],
+    "auto_increment": {
+        "column": "hist_id",
+        "sequence": "commerce.bmsql_history_seq"
+     }
+    },
+    "bmsql_item": {
+      "column_vindexes": [
+        {
+          "column": "i_id",
+          "name": "hash"
+        }
+      ]
+    },
+    "bmsql_new_order": {
+      "column_vindexes": [
+        {
+          "column": "no_w_id",
+          "name": "hash"
+        }
+      ]
+    },
+    "bmsql_order_line": {
+      "column_vindexes": [
+        {
+          "column": "ol_w_id",
+          "name": "hash"
+        }
+      ]
+    },
+    "bmsql_oorder": {
+      "column_vindexes": [
+        {
+          "column": "o_w_id",
+          "name": "hash"
+        }
+      ]
+    },
+    "bmsql_stock": {
+      "column_vindexes": [
+        {
+          "column": "s_w_id",
+          "name": "hash"
+        }
+      ]
+    },
+    "bmsql_warehouse": {
+      "column_vindexes": [
+        {
+          "column": "w_id",
+          "name": "hash"
+        }
+      ]
+    }
+  }
+}

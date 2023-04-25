@@ -1,0 +1,53 @@
+{
+    "sharded": false,
+    "tables": {
+        "sbtest1_seq": {
+            "type": "sequence"
+        },
+        "sbtest2_seq": {
+            "type": "sequence"
+        },
+        "sbtest3_seq": {
+            "type": "sequence"
+        },
+        "sbtest4_seq": {
+            "type": "sequence"
+        },
+        "sbtest5_seq": {
+            "type": "sequence"
+        },
+        "sbtest6_seq": {
+            "type": "sequence"
+        },
+        "sbtest7_seq": {
+            "type": "sequence"
+        },
+        "sbtest8_seq": {
+            "type": "sequence"
+        },
+        "sbtest9_seq": {
+            "type": "sequence"
+        },
+        "sbtest10_seq": {
+            "type": "sequence"
+        },
+        "sbtest11_seq": {
+            "type": "sequence"
+        },
+        "sbtest12_seq": {
+            "type": "sequence"
+        },
+        "sbtest13_seq": {
+            "type": "sequence"
+        },
+        "sbtest14_seq": {
+            "type": "sequence"
+        },
+        "sbtest15_seq": {
+            "type": "sequence"
+        },
+        "sbtest16_seq": {
+            "type": "sequence"
+        }
+    }
+}

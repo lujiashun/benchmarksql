@@ -1,0 +1,192 @@
+apiVersion: planetscale.com/v2
+kind: VitessCluster
+metadata:
+  name: example
+  namespace: lujs
+spec:
+#  backup:
+#    locations:
+#      # If you are not enisoc, you'll need to customize this section.
+#    - volume:
+#        emptyDir:
+#        hostPath:
+#          path: /opt/vitess/data
+#          type: DirectoryOrCreate
+  globalLockserver:
+    etcd:
+  
+ 
+      dataVolumeClaimTemplate:
+        storageClassName: hostpath
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 1Gi
+  images:
+    vtctld: localhost/vitess/lite:latest
+    vtadmin: localhost/vitess/vtadmin:latest
+    vtgate: localhost/vitess/lite:latest
+    vttablet: localhost/vitess/lite:latest
+    vtbackup: localhost/vitess/lite:latest
+    vtorc: localhost/vitess/lite:latest
+    mysqld:
+      mysql56Compatible: localhost/vitess/lite:latest
+    mysqldExporter: localhost/prom/mysqld-exporter:v0.11.0
+  imagePullPolicies:
+    vtctld: IfNotPresent
+    vtadmin: IfNotPresent
+    vtgate: IfNotPresent
+    vttablet: IfNotPresent
+    vtbackup: IfNotPresent
+    vtorc: IfNotPresent
+    mysqld: IfNotPresent
+    mysqldExporter: IfNotPresent
+  cells:
+  - name: zone1
+    gateway:
+      authentication:
+        static:
+          secret:
+            name: example-cluster-config
+            key: users.json
+      replicas: 3
+      resources:
+        limits:
+          cpu: 16000m
+          memory: 16Gi
+        requests:
+          cpu: 16000m
+          memory: 1Gi
+
+
+  vitessDashboard:
+    cells:
+    - zone1
+    extraFlags:
+      security_policy: read-only
+    replicas: 1
+    resources:
+
+
+      requests:
+        cpu: 100m
+        memory: 128Mi
+  vtadmin:
+    rbac:
+      name: example-cluster-config
+      key: rbac.yaml
+    cells:
+      - zone1
+    apiAddresses:
+      - http://10.253.122.33:14001
+    replicas: 1
+    readOnly: false
+    apiResources:
+
+
+      requests:
+        cpu: 100m
+        memory: 128Mi
+    webResources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+
+  keyspaces:
+  - name: commerce
+    durabilityPolicy: none
+    turndownPolicy: Immediate
+    vitessOrchestrator:
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+      extraFlags:
+        recovery-period-block-duration: 5s
+    partitionings:
+    - equal:
+        parts: 1
+        shardTemplate:
+          databaseInitScriptSecret:
+            name: example-cluster-config
+            key: init_db.sql
+          replication:
+            enforceSemiSync: false
+          tabletPools:
+          - cell: zone1
+            type: replica
+            replicas: 1
+            vttablet:
+              extraFlags:
+                disable_active_reparents: "true"
+                db_charset: utf8mb4
+                queryserver-config-transaction-cap: "1000"
+              resources:
+                limits:
+                  cpu: 16000m
+                  memory: 16Gi
+                requests:
+                  cpu: 16000m
+                  memory: 16Gi
+            mysqld:
+              configOverrides: "innodb_buffer_pool_size=4G\nmax_connections=2000"
+              resources:
+                limits:
+                  cpu: 16000m
+                  memory: 16Gi
+                requests:
+                  cpu: 16000m
+                  memory: 16Gi
+            dataVolumeClaimTemplate:
+              storageClassName: hostpath
+              accessModes: ["ReadWriteOnce"]
+              resources:
+                requests:
+                  storage: 200Gi
+  - name: customer
+    durabilityPolicy: none
+    turndownPolicy: Immediate
+    partitionings:
+    - equal:
+        parts: 4
+        shardTemplate:
+          databaseInitScriptSecret:
+            name: example-cluster-config
+            key: init_db.sql
+          replication:
+            enforceSemiSync: false
+          tabletPools:
+          - cell: zone1
+            type: replica
+            replicas: 1
+            vttablet:
+              configOverrides: "queryserver-config-transaction-cap=3000"
+              extraFlags:
+                disable_active_reparents: "true"
+                db_charset: utf8mb4
+                wait_for_backup_interval: 0s
+                queryserver-config-transaction-cap: "1000"
+              resources:
+                limits:
+                  cpu: 16000m
+                  memory: 16Gi
+                requests:
+                  cpu: 16000m
+                  memory: 16Gi
+            mysqld:
+              configOverrides: "innodb_buffer_pool_size=8G\nmax_connections=2000"
+              resources:
+                limits:
+                  cpu: 16000m
+                  memory: 32Gi
+                requests:
+                  cpu: 16000m
+                  memory: 32Gi
+            dataVolumeClaimTemplate:
+              storageClassName: hostpath
+              accessModes: ["ReadWriteOnce"]
+              resources:
+                requests:
+                  storage: 150Gi
+  updateStrategy:
+    type: Immediate

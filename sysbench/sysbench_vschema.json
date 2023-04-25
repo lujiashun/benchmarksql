@@ -1,0 +1,509 @@
+{
+  "sharded": true,
+  "vindexes": {
+    "hash": {
+      "type": "hash"
+    },
+    "unicode_loose_md5": {
+      "type": "unicode_loose_md5"
+    },
+    "sbtest1_keyspace_idx": {
+      "type": "consistent_lookup",
+      "params": {
+        "table": "customer.sbtest1_keyspace_idx",
+        "from": "k,id",
+        "to": "keyspace_id"
+      },
+      "owner": "sbtest1"
+    },
+    "sbtest2_keyspace_idx": {
+      "type": "consistent_lookup",
+      "params": {
+        "table": "customer.sbtest2_keyspace_idx",
+        "from": "k,id",
+        "to": "keyspace_id"
+      },
+      "owner": "sbtest2"
+    },
+    "sbtest3_keyspace_idx": {
+      "type": "consistent_lookup",
+      "params": {
+        "table": "customer.sbtest3_keyspace_idx",
+        "from": "k,id",
+        "to": "keyspace_id"
+      },
+      "owner": "sbtest3"
+    },
+    "sbtest4_keyspace_idx": {
+      "type": "consistent_lookup",
+      "params": {
+        "table": "customer.sbtest4_keyspace_idx",
+        "from": "k,id",
+        "to": "keyspace_id"
+      },
+      "owner": "sbtest4"
+    },
+    "sbtest5_keyspace_idx": {
+      "type": "consistent_lookup",
+      "params": {
+        "table": "customer.sbtest5_keyspace_idx",
+        "from": "k,id",
+        "to": "keyspace_id"
+      },
+      "owner": "sbtest5"
+    },
+    "sbtest6_keyspace_idx": {
+      "type": "consistent_lookup",
+      "params": {
+        "table": "customer.sbtest6_keyspace_idx",
+        "from": "k,id",
+        "to": "keyspace_id"
+      },
+      "owner": "sbtest6"
+    },
+    "sbtest7_keyspace_idx": {
+      "type": "consistent_lookup",
+      "params": {
+        "table": "customer.sbtest7_keyspace_idx",
+        "from": "k,id",
+        "to": "keyspace_id"
+      },
+      "owner": "sbtest7"
+    },
+    "sbtest8_keyspace_idx": {
+      "type": "consistent_lookup",
+      "params": {
+        "table": "customer.sbtest8_keyspace_idx",
+        "from": "k,id",
+        "to": "keyspace_id"
+      },
+      "owner": "sbtest8"
+    },
+    "sbtest9_keyspace_idx": {
+      "type": "consistent_lookup",
+      "params": {
+        "table": "customer.sbtest9_keyspace_idx",
+        "from": "k,id",
+        "to": "keyspace_id"
+      },
+      "owner": "sbtest9"
+    },
+    "sbtest10_keyspace_idx": {
+      "type": "consistent_lookup",
+      "params": {
+        "table": "customer.sbtest10_keyspace_idx",
+        "from": "k,id",
+        "to": "keyspace_id"
+      },
+      "owner": "sbtest10"
+    },
+    "sbtest11_keyspace_idx": {
+      "type": "consistent_lookup",
+      "params": {
+        "table": "customer.sbtest11_keyspace_idx",
+        "from": "k,id",
+        "to": "keyspace_id"
+      },
+      "owner": "sbtest11"
+    },
+    "sbtest12_keyspace_idx": {
+      "type": "consistent_lookup",
+      "params": {
+        "table": "customer.sbtest12_keyspace_idx",
+        "from": "k,id",
+        "to": "keyspace_id"
+      },
+      "owner": "sbtest12"
+    },
+    "sbtest13_keyspace_idx": {
+      "type": "consistent_lookup",
+      "params": {
+        "table": "customer.sbtest13_keyspace_idx",
+        "from": "k,id",
+        "to": "keyspace_id"
+      },
+      "owner": "sbtest13"
+    },
+    "sbtest14_keyspace_idx": {
+      "type": "consistent_lookup",
+      "params": {
+        "table": "customer.sbtest1_keyspace_idx",
+        "from": "k,id",
+        "to": "keyspace_id"
+      },
+      "owner": "sbtest14"
+    },
+    "sbtest15_keyspace_idx": {
+      "type": "consistent_lookup",
+      "params": {
+        "table": "customer.sbtest15_keyspace_idx",
+        "from": "k,id",
+        "to": "keyspace_id"
+      },
+      "owner": "sbtest15"
+    },
+    "sbtest16_keyspace_idx": {
+      "type": "consistent_lookup",
+      "params": {
+        "table": "customer.sbtest16_keyspace_idx",
+        "from": "k,id",
+        "to": "keyspace_id"
+      },
+      "owner": "sbtest16"
+    }
+  },
+  "tables": {
+    "sbtest1_keyspace_idx": {
+      "column_vindexes": [{
+        "column": "k",
+        "name": "hash"
+      }]
+    }, 
+    "sbtest2_keyspace_idx": {
+      "column_vindexes": [{
+        "column": "k",
+        "name": "hash"
+      }]
+    },
+    "sbtest3_keyspace_idx": {
+      "column_vindexes": [{
+        "column": "k",
+        "name": "hash"
+      }]
+    }, 
+    "sbtest4_keyspace_idx": {
+      "column_vindexes": [{
+        "column": "k",
+        "name": "hash"
+      }]
+    },
+    "sbtest5_keyspace_idx": {
+      "column_vindexes": [{
+        "column": "k",
+        "name": "hash"
+      }]
+    }, 
+    "sbtest6_keyspace_idx": {
+      "column_vindexes": [{
+        "column": "k",
+        "name": "hash"
+      }]
+    },
+    "sbtest7_keyspace_idx": {
+      "column_vindexes": [{
+        "column": "k",
+        "name": "hash"
+      }]
+    }, 
+    "sbtest8_keyspace_idx": {
+      "column_vindexes": [{
+        "column": "k",
+        "name": "hash"
+      }]
+    },
+    "sbtest9_keyspace_idx": {
+      "column_vindexes": [{
+        "column": "k",
+        "name": "hash"
+      }]
+    }, 
+    "sbtest10_keyspace_idx": {
+      "column_vindexes": [{
+        "column": "k",
+        "name": "hash"
+      }]
+    },
+    "sbtest11_keyspace_idx": {
+      "column_vindexes": [{
+        "column": "k",
+        "name": "hash"
+      }]
+    }, 
+    "sbtest12_keyspace_idx": {
+      "column_vindexes": [{
+        "column": "k",
+        "name": "hash"
+      }]
+    },
+    "sbtest13_keyspace_idx": {
+      "column_vindexes": [{
+        "column": "k",
+        "name": "hash"
+      }]
+    }, 
+    "sbtest14_keyspace_idx": {
+      "column_vindexes": [{
+        "column": "k",
+        "name": "hash"
+      }]
+    },
+    "sbtest15_keyspace_idx": {
+      "column_vindexes": [{
+        "column": "k",
+        "name": "hash"
+      }]
+    }, 
+    "sbtest16_keyspace_idx": {
+      "column_vindexes": [{
+        "column": "k",
+        "name": "hash"
+      }]
+    },
+    "sbtest1": {
+      "column_vindexes": [
+        {
+          "column": "id",
+          "name": "hash"
+        },
+        {
+          "columns": ["k","id"],
+          "name": "sbtest1_keyspace_idx"
+        }
+      ],
+    "auto_increment": {
+        "column": "id",
+        "sequence": "commerce.sbtest1_seq"
+     }
+    },
+    "sbtest2": {
+      "column_vindexes": [
+        {
+          "column": "id",
+          "name": "hash"
+        },
+        {
+          "columns": ["k","id"],
+          "name": "sbtest2_keyspace_idx"
+        }
+      ],
+    "auto_increment": {
+        "column": "id",
+        "sequence": "commerce.sbtest2_seq"
+     }
+    },
+    "sbtest3": {
+      "column_vindexes": [
+        {
+          "column": "id",
+          "name": "hash"
+        },
+        {
+          "columns": ["k","id"],
+          "name": "sbtest3_keyspace_idx"
+        }
+      ],
+    "auto_increment": {
+        "column": "id",
+        "sequence": "commerce.sbtest3_seq"
+     }
+    },
+    "sbtest4": {
+      "column_vindexes": [
+        {
+          "column": "id",
+          "name": "hash"
+        },
+        {
+          "columns": ["k","id"],
+          "name": "sbtest4_keyspace_idx"
+        }
+      ],
+    "auto_increment": {
+        "column": "id",
+        "sequence": "commerce.sbtest4_seq"
+     }
+    },
+    "sbtest5": {
+      "column_vindexes": [
+        {
+          "column": "id",
+          "name": "hash"
+        },
+        {
+          "columns": ["k","id"],
+          "name": "sbtest5_keyspace_idx"
+        }
+      ],
+    "auto_increment": {
+        "column": "id",
+        "sequence": "commerce.sbtest5_seq"
+     }
+    },
+    "sbtest6": {
+      "column_vindexes": [
+        {
+          "column": "id",
+          "name": "hash"
+        },
+        {
+          "columns": ["k","id"],
+          "name": "sbtest6_keyspace_idx"
+        }
+      ],
+    "auto_increment": {
+        "column": "id",
+        "sequence": "commerce.sbtest6_seq"
+     }
+    },
+    "sbtest7": {
+      "column_vindexes": [
+        {
+          "column": "id",
+          "name": "hash"
+        },
+        {
+          "columns": ["k","id"],
+          "name": "sbtest7_keyspace_idx"
+        }
+      ],
+    "auto_increment": {
+        "column": "id",
+        "sequence": "commerce.sbtest7_seq"
+     }
+    },
+    "sbtest8": {
+      "column_vindexes": [
+        {
+          "column": "id",
+          "name": "hash"
+        },
+        {
+          "columns": ["k","id"],
+          "name": "sbtest8_keyspace_idx"
+        }
+      ],
+    "auto_increment": {
+        "column": "id",
+        "sequence": "commerce.sbtest8_seq"
+     }
+    },
+    "sbtest9": {
+      "column_vindexes": [
+        {
+          "column": "id",
+          "name": "hash"
+        },
+        {
+          "columns": ["k","id"],
+          "name": "sbtest9_keyspace_idx"
+        }
+      ],
+    "auto_increment": {
+        "column": "id",
+        "sequence": "commerce.sbtest9_seq"
+     }
+    },
+    "sbtest10": {
+      "column_vindexes": [
+        {
+          "column": "id",
+          "name": "hash"
+        },
+        {
+          "columns": ["k","id"],
+          "name": "sbtest10_keyspace_idx"
+        }
+      ],
+    "auto_increment": {
+        "column": "id",
+        "sequence": "commerce.sbtest10_seq"
+     }
+    },
+    "sbtest11": {
+      "column_vindexes": [
+        {
+          "column": "id",
+          "name": "hash"
+        },
+        {
+          "columns": ["k","id"],
+          "name": "sbtest11_keyspace_idx"
+        }
+      ],
+    "auto_increment": {
+        "column": "id",
+        "sequence": "commerce.sbtest11_seq"
+     }
+    },
+    "sbtest12": {
+      "column_vindexes": [
+        {
+          "column": "id",
+          "name": "hash"
+        },
+        {
+          "columns": ["k","id"],
+          "name": "sbtest12_keyspace_idx"
+        }
+      ],
+    "auto_increment": {
+        "column": "id",
+        "sequence": "commerce.sbtest12_seq"
+     }
+    },
+    "sbtest13": {
+      "column_vindexes": [
+        {
+          "column": "id",
+          "name": "hash"
+        },
+        {
+          "columns": ["k","id"],
+          "name": "sbtest13_keyspace_idx"
+        }
+      ],
+    "auto_increment": {
+        "column": "id",
+        "sequence": "commerce.sbtest13_seq"
+     }
+    },
+    "sbtest14": {
+      "column_vindexes": [
+        {
+          "column": "id",
+          "name": "hash"
+        },
+        {
+          "columns": ["k","id"],
+          "name": "sbtest14_keyspace_idx"
+        }
+      ],
+    "auto_increment": {
+        "column": "id",
+        "sequence": "commerce.sbtest14_seq"
+     }
+    },
+    "sbtest15": {
+      "column_vindexes": [
+        {
+          "column": "id",
+          "name": "hash"
+        },
+        {
+          "columns": ["k","id"],
+          "name": "sbtest15_keyspace_idx"
+        }
+      ],
+    "auto_increment": {
+        "column": "id",
+        "sequence": "commerce.sbtest15_seq"
+     }
+    },
+    "sbtest16": {
+      "column_vindexes": [
+        {
+          "column": "id",
+          "name": "hash"
+        },
+        {
+          "columns": ["k","id"],
+          "name": "sbtest16_keyspace_idx"
+        }
+      ],
+    "auto_increment": {
+        "column": "id",
+        "sequence": "commerce.sbtest16_seq"
+     }
+    }
+  }
+}

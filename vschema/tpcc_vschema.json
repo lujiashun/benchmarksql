@@ -42,7 +42,7 @@
       ],
     "auto_increment": {
         "column": "hist_id",
-        "sequence": "commerce.bmsql_history_seq"
+        "sequence": "meta.bmsql_history_seq"
      }
     },
     "bmsql_item": {

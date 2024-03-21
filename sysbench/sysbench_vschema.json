@@ -262,7 +262,7 @@
       ],
     "auto_increment": {
         "column": "id",
-        "sequence": "commerce.sbtest1_seq"
+        "sequence": "meta.sbtest1_seq"
      }
     },
     "sbtest2": {
@@ -278,7 +278,7 @@
       ],
     "auto_increment": {
         "column": "id",
-        "sequence": "commerce.sbtest2_seq"
+        "sequence": "meta.sbtest2_seq"
      }
     },
     "sbtest3": {
@@ -294,7 +294,7 @@
       ],
     "auto_increment": {
         "column": "id",
-        "sequence": "commerce.sbtest3_seq"
+        "sequence": "meta.sbtest3_seq"
      }
     },
     "sbtest4": {
@@ -310,7 +310,7 @@
       ],
     "auto_increment": {
         "column": "id",
-        "sequence": "commerce.sbtest4_seq"
+        "sequence": "meta.sbtest4_seq"
      }
     },
     "sbtest5": {
@@ -326,7 +326,7 @@
       ],
     "auto_increment": {
         "column": "id",
-        "sequence": "commerce.sbtest5_seq"
+        "sequence": "meta.sbtest5_seq"
      }
     },
     "sbtest6": {
@@ -342,7 +342,7 @@
       ],
     "auto_increment": {
         "column": "id",
-        "sequence": "commerce.sbtest6_seq"
+        "sequence": "meta.sbtest6_seq"
      }
     },
     "sbtest7": {
@@ -358,7 +358,7 @@
       ],
     "auto_increment": {
         "column": "id",
-        "sequence": "commerce.sbtest7_seq"
+        "sequence": "meta.sbtest7_seq"
      }
     },
     "sbtest8": {
@@ -374,7 +374,7 @@
       ],
     "auto_increment": {
         "column": "id",
-        "sequence": "commerce.sbtest8_seq"
+        "sequence": "meta.sbtest8_seq"
      }
     },
     "sbtest9": {
@@ -390,7 +390,7 @@
       ],
     "auto_increment": {
         "column": "id",
-        "sequence": "commerce.sbtest9_seq"
+        "sequence": "meta.sbtest9_seq"
      }
     },
     "sbtest10": {
@@ -406,7 +406,7 @@
       ],
     "auto_increment": {
         "column": "id",
-        "sequence": "commerce.sbtest10_seq"
+        "sequence": "meta.sbtest10_seq"
      }
     },
     "sbtest11": {
@@ -422,7 +422,7 @@
       ],
     "auto_increment": {
         "column": "id",
-        "sequence": "commerce.sbtest11_seq"
+        "sequence": "meta.sbtest11_seq"
      }
     },
     "sbtest12": {
@@ -438,7 +438,7 @@
       ],
     "auto_increment": {
         "column": "id",
-        "sequence": "commerce.sbtest12_seq"
+        "sequence": "meta.sbtest12_seq"
      }
     },
     "sbtest13": {
@@ -454,7 +454,7 @@
       ],
     "auto_increment": {
         "column": "id",
-        "sequence": "commerce.sbtest13_seq"
+        "sequence": "meta.sbtest13_seq"
      }
     },
     "sbtest14": {
@@ -470,7 +470,7 @@
       ],
     "auto_increment": {
         "column": "id",
-        "sequence": "commerce.sbtest14_seq"
+        "sequence": "meta.sbtest14_seq"
      }
     },
     "sbtest15": {
@@ -486,7 +486,7 @@
       ],
     "auto_increment": {
         "column": "id",
-        "sequence": "commerce.sbtest15_seq"
+        "sequence": "meta.sbtest15_seq"
      }
     },
     "sbtest16": {
@@ -502,7 +502,7 @@
       ],
     "auto_increment": {
         "column": "id",
-        "sequence": "commerce.sbtest16_seq"
+        "sequence": "meta.sbtest16_seq"
      }
     }
   }

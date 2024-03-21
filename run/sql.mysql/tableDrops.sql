@@ -8,4 +8,4 @@ drop table bmsql_stock;
 drop table bmsql_item;
 drop table bmsql_district;
 drop table bmsql_warehouse;
-drop table commerce.bmsql_history_seq;
+drop table meta.bmsql_history_seq;

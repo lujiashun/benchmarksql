@@ -208,14 +208,14 @@ CREATE TABLE sbtest%d(
    end
 
    query_seq = string.format([[
-CREATE TABLE commerce.sbtest%d_seq(
+CREATE TABLE meta.sbtest%d_seq(
   id bigint, next_id bigint, cache bigint, primary key(id)) comment 'vitess_sequence'
   ]],table_num)
 
    con:query(query_seq)
 
    query_seq_insert = string.format([[
-INSERT into commerce.sbtest%d_seq(id,next_id,cache) values(0,100000000,1000000000)
+INSERT into meta.sbtest%d_seq(id,next_id,cache) values(0,100000000,1000000000)
   ]],table_num)
 
    con:query(query_seq_insert)
@@ -415,7 +415,7 @@ function cleanup()
       print(string.format("Dropping table 'sbtest%d'...", i))
       con:query("DROP TABLE IF EXISTS sbtest" .. i )
       con:query("DROP TABLE IF EXISTS sbtest" .. i .. "_keyspace_idx" )
-      con:query("DROP TABLE IF EXISTS commerce.sbtest" .. i .. "_seq" )
+      con:query("DROP TABLE IF EXISTS meta.sbtest" .. i .. "_seq" )
    end
 end
 

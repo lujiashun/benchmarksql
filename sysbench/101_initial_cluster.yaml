@@ -93,7 +93,7 @@ spec:
         memory: 128Mi
 
   keyspaces:
-  - name: commerce
+  - name: meta
     durabilityPolicy: none
     turndownPolicy: Immediate
     vitessOrchestrator:

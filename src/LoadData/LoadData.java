@@ -146,6 +146,8 @@ public class LoadData
 	    {
 		dbConn = DriverManager.getConnection(db, dbProps);
 		dbConn.setAutoCommit(false);
+
+
 		if (writeCSV)
 		    workers[i] = new LoadDataWorker(i, csvNullValue,
 							rnd.newRandom());
@@ -157,7 +159,7 @@ public class LoadData
 	    }
 	    catch (SQLException se)
 	    {
-		System.err.println("ERROR: " + se.getMessage());
+		System.err.println("ERROR111: " +i + ":" + se.getMessage());
 		System.exit(3);
 		return;
 	    }

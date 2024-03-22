@@ -137,9 +137,9 @@ public class LoadDataWorker implements Runnable
 	    );
 	stmtHistory = dbConn.prepareStatement(
 		"INSERT INTO bmsql_history (" +
-		"  hist_id, h_c_id, h_c_d_id, h_c_w_id, h_d_id, h_w_id, " +
+		"  h_c_id, h_c_d_id, h_c_w_id, h_d_id, h_w_id, " +
 		"  h_date, h_amount, h_data) " +
-		"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
+		"VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
 	    );
 	stmtOrder = dbConn.prepareStatement(
 		"INSERT INTO bmsql_oorder (" +
@@ -392,7 +392,8 @@ public class LoadDataWorker implements Runnable
 	    /*
 	     * Load the data in batches of 500 rows.
 	     */
-	    if (s_i_id != 1 && (s_i_id - 1) % 500 == 0)
+	    // if (s_i_id != 1 && (s_i_id - 1) % 500 == 0)
+		if (s_i_id != 1 && (s_i_id - 1) % 500 == 0)   // edited by lujs, each 1000 rows
 	    {
 		if (writeCSV)
 		    LoadData.warehouseAppend(sbWarehouse);
@@ -521,7 +522,8 @@ public class LoadDataWorker implements Runnable
 	    for (int c_id = 1; c_id <= 3000; c_id++)
 	    {
 			// commit district and history when 200 records
-			if (c_id != 1 && (c_id - 1) % 200 == 0)
+			// if (c_id != 1 && (c_id - 1) % 200 == 0)
+			if (c_id != 1 && (c_id - 1) % 200 == 0)  // edited by lujs, every 1000 rows
 			{
 				if (writeCSV){
 					LoadData.customerAppend(sbCustomer);
@@ -617,7 +619,8 @@ public class LoadDataWorker implements Runnable
 		}
 		else
 		{
-		    stmtHistory.setInt(1, (w_id - 1) * 30000 + (d_id - 1) * 3000 + c_id);
+		    //stmtHistory.setInt(1, (w_id - 1) * 30000 + (d_id - 1) * 3000 + c_id);
+			/*
 		    stmtHistory.setInt(2, c_id);
 		    stmtHistory.setInt(3, d_id);
 		    stmtHistory.setInt(4, w_id);
@@ -626,6 +629,15 @@ public class LoadDataWorker implements Runnable
 		    stmtHistory.setTimestamp(7, new java.sql.Timestamp(System.currentTimeMillis()));
 		    stmtHistory.setDouble(8, 10.00);
 		    stmtHistory.setString(9, rnd.getAString(12, 24));
+		    */
+		    stmtHistory.setInt(1, c_id);
+		    stmtHistory.setInt(2, d_id);
+		    stmtHistory.setInt(3, w_id);
+		    stmtHistory.setInt(4, d_id);
+		    stmtHistory.setInt(5, w_id);
+		    stmtHistory.setTimestamp(6, new java.sql.Timestamp(System.currentTimeMillis()));
+		    stmtHistory.setDouble(7, 10.00);
+		    stmtHistory.setString(8, rnd.getAString(12, 24));
 
 		    stmtHistory.addBatch();
 		}
@@ -669,7 +681,8 @@ public class LoadDataWorker implements Runnable
 		int     o_ol_cnt = rnd.nextInt(5, 15);
 
 			// commit district and history when 100 records
-			if (o_id != 1 && (o_id - 1) % 100 == 0)
+			//if (o_id != 1 && (o_id - 1) % 100 == 0)
+			if (o_id != 1 && (o_id - 1) % 100 == 0)   // edited by lujs, every 500 records
 			{
 				if (writeCSV)
 				{

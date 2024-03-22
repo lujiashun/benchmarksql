@@ -60,7 +60,7 @@ create table bmsql_customer (
 -- create sequence bmsql_hist_id_seq;
 
 create table bmsql_history (
-  hist_id  integer not null primary key,
+  hist_id  bigint not null primary key,
   h_c_id   integer,
   h_c_d_id integer,
   h_c_w_id integer,

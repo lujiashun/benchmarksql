@@ -68,7 +68,8 @@ create table bmsql_history (
   h_w_id   integer,
   h_date   timestamp,
   h_amount decimal(6,2),
-  h_data   varchar(24)
+  h_data   varchar(24),
+  key bmsql_history_idx(h_w_id)
 );
 
 create table bmsql_new_order (

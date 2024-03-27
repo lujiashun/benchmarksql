@@ -1,6 +1,6 @@
 db=mysql
 driver=com.mysql.cj.jdbc.Driver
-conn=jdbc:mysql://example-vtgate-ae7df4b6.lujs.svc:3306/customer?useSSL=false&serverTimezone=Asia/Shanghai&useServerPrepStmts=true&useConfigs=maxPerformance&rewriteBatchedStatements=true
+conn=jdbc:mysql://example-vtgate-ae7df4b6.lujs.svc:3306/customer?useSSL=false&serverTimezone=Asia/Shanghai&useServerPrepStmts=true&useConfigs=maxPerformance&rewriteBatchedStatements=true&cachePrepStmts=true&prepStmtCacheSize=1000&prepStmtCacheSqlLimit=2048
 user=user
 password=
 

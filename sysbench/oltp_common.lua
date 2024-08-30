@@ -163,12 +163,14 @@ function create_table(drv, con, table_num)
       drv:name() == "drizzle"
    then
       if sysbench.opt.auto_inc then
-         id_def = "bigint NOT NULL "
+         id_def = "bigint NOT NULL AUTO_INCREMENT"
       else
          id_def = "bigint NOT NULL"
       end
       engine_def = "/*! ENGINE = " .. sysbench.opt.mysql_storage_engine .. " */"
       extra_table_options = mysql_table_options or ""
+      partition_def = " partition by hash(id) "
+
    elseif drv:name() == "pgsql"
    then
       if not sysbench.opt.auto_inc then
@@ -191,35 +193,10 @@ CREATE TABLE sbtest%d(
   c CHAR(120) DEFAULT '' NOT NULL,
   pad CHAR(60) DEFAULT '' NOT NULL,
   %s (id)
-) %s %s]],
-      table_num, id_def, id_index_def, engine_def, extra_table_options)
+) %s %s %s]],
+      table_num, id_def, id_index_def, engine_def, extra_table_options, partition_def)
 
    con:query(query)
-
-   if sysbench.opt.create_secondary then
-      print(string.format("Creating a secondary index on 'sbtest%d'...",
-                          table_num))
-      con:query(string.format("create table sbtest%d_keyspace_idx(k bigint, id bigint, keyspace_id varbinary(10), primary key(k, id))",
-                              table_num))
-
-      con:query(string.format("CREATE INDEX k_%d ON sbtest%d(k)",
-                              table_num, table_num))
-
-   end
-
-   query_seq = string.format([[
-CREATE TABLE meta.sbtest%d_seq(
-  id bigint, next_id bigint, cache bigint, primary key(id)) comment 'vitess_sequence'
-  ]],table_num)
-
-   con:query(query_seq)
-
-   query_seq_insert = string.format([[
-INSERT into meta.sbtest%d_seq(id,next_id,cache) values(0,100000000,1000000000)
-  ]],table_num)
-
-   con:query(query_seq_insert)
-
 
    if (sysbench.opt.table_size > 0) then
       print(string.format("Inserting %d records into 'sbtest%d'",
@@ -234,7 +211,8 @@ INSERT into meta.sbtest%d_seq(id,next_id,cache) values(0,100000000,1000000000)
 
    con:bulk_insert_init(query)
 
-   local c_val local pad_val
+   local c_val
+   local pad_val
 
    for i = 1, sysbench.opt.table_size do
 
@@ -256,12 +234,12 @@ INSERT into meta.sbtest%d_seq(id,next_id,cache) values(0,100000000,1000000000)
 
    con:bulk_insert_done()
 
---   if sysbench.opt.create_secondary then
---      print(string.format("Creating a secondary index on 'sbtest%d'...",
---                          table_num))
---   con:query(string.format("CREATE INDEX k_%d ON sbtest%d(k)",
---                              table_num, table_num))
---   end
+   if sysbench.opt.create_secondary then
+      print(string.format("Creating a secondary index on 'sbtest%d'...",
+                          table_num))
+      con:query(string.format("CREATE INDEX k_%d ON sbtest%d(k)",
+                                 table_num, table_num))
+   end
 end
 
 local t = sysbench.sql.type
@@ -414,8 +392,6 @@ function cleanup()
    for i = 1, sysbench.opt.tables do
       print(string.format("Dropping table 'sbtest%d'...", i))
       con:query("DROP TABLE IF EXISTS sbtest" .. i )
-      con:query("DROP TABLE IF EXISTS sbtest" .. i .. "_keyspace_idx" )
-      con:query("DROP TABLE IF EXISTS meta.sbtest" .. i .. "_seq" )
    end
 end
 
@@ -437,7 +413,7 @@ end
 
 function execute_point_selects()
    local tnum = get_table_num()
-
+   local i
 
    for i = 1, sysbench.opt.point_selects do
       param[tnum].point_selects[1]:set(get_id())

@@ -1,17 +1,17 @@
 db=mysql
-driver=com.mysql.jdbc.Driver
-conn=jdbc:mysql://localhost:4000/tpcc?useSSL=false&useServerPrepStmts=true&useConfigs=maxPerformance&rewriteBatchedStatements=true
-user=root
-password=
+driver=com.mysql.cj.jdbc.Driver
+conn=jdbc:mysql://127.0.0.1:15306/customer?useSSL=false&serverTimezone=Asia/Shanghai&useServerPrepStmts=true&useConfigs=maxPerformance&rewriteBatchedStatements=true&cachePrepStmts=true&prepStmtCacheSize=1000&prepStmtCacheSqlLimit=2048
+user=mysql_user
+password=mysql_password
 
 warehouses=1
-loadWorkers=4
+loadWorkers=2
 
-terminals=1
+terminals=2
 //To run specified transactions per terminal- runMins must equal zero
 runTxnsPerTerminal=0
 //To run for specified minutes- runTxnsPerTerminal must equal zero
-runMins=10
+runMins=5
 //Number of total transactions per minute
 limitTxnsPerMin=0
 
